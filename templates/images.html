@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG_BOOK</title>
+    <style>
+        body {
+            background-color: #333; /* Dark gray background */
+            color: white; /* Text color */
+            font-family: Arial, sans-serif; /* Set font family */
+            padding: 20px; /* Add some padding */
+        }
+
+        h1 {
+            text-align: center; /* Center-align the heading */
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px; /* Add some padding around the images */
+        }
+
+        .image-item {
+            width: 19%; /* Set the width to 19% for each image item */
+            margin-bottom: 20px;
+            text-align: center; /* Center-align the image and its name */
+            background-color: #222; /* Darker gray background for each image item */
+            padding: 10px; /* Add padding inside each image item */
+        }
+
+        .image-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .image-name {
+            font-size: 16px; /* Set font size to 16px */
+            font-weight: bold; /* Make the name bold */
+            margin-top: 10px; /* Add some margin space between the image and its name */
+        }
+    </style>
+</head>
+<body>
+    <h1>LOG_BOOK</h1>
+    <div class="image-container">
+        {% for image in jpg_images %}
+        <div class="image-item">
+            <img src="{{ url_for('static', filename='Image/' + image) }}" alt="{{ image }}">
+            <div class="image-name">{{ image }}</div> <!-- Print the image name -->
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
