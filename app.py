@@ -6,9 +6,9 @@ import time
 
 from twilio.rest import Client
 
-
-account_sid = "AC01b517bb23832567b8957e0e72b961b2"
-auth_token = "2c4db09705e70829913253463dbc82d9"
+'''Mention your Twilio account as well as Mobile Number'''
+account_sid = ""
+auth_token = ""
 client = Client(account_sid, auth_token)
 
 app = Flask(__name__, static_url_path='/static', static_folder='static')
@@ -59,7 +59,7 @@ def detect_faces(frame):
         if (name == "Unknown"):
             call = client.calls.create(
                 twiml='<Response><Say>Some Unknown person has entered your Property</Say></Response>',
-                to="+919523812688",
+                to="", #Update your Mobile Number
                 from_="+13343578518"
             )
             print(call.sid)
@@ -67,7 +67,7 @@ def detect_faces(frame):
             message = client.messages.create(
                 body="Someone Unknown Person has Entered",
                 from_="+13343578518",
-                to="+919523812688"
+                to="" #Update your Mobile Number
             )
             print(message.sid)
 
@@ -76,7 +76,7 @@ def detect_faces(frame):
             message = client.messages.create(
                 body="Someone Entered - " + name,
                 from_="+13343578518",
-                to="+919523812688"
+                to="" #Update your Mobile Number
             )
             print(message.sid)
 
